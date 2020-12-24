@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <base href="/"/>
 </head>
 <body>
 
@@ -16,7 +15,7 @@
                 <div class="col-sm">
                     <div>
                         <img src=""> {{urlHome}}
-                        {{user.photo_thumb}} 
+                        {{user.photo_thumb}}
                     </div>
                     <div>
                         <h3>{{user.fullname}} <small class="text-muted"> {{user.international_name}}</small><h3>
@@ -35,11 +34,11 @@
                         <div class="progress-bar bg-warning" role="progressbar" v-bind:style="{ width: progress + '%' }" v-bind:aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">{{progress + '%'}}</div>
                     </div>
                 </div>
-                <div class="p-2 bd-highlight">{{user.nextLevel.name}}</div>
+                <div class="p-2 bd-highlight" v-if="user.nextLevel">{{user.nextLevel.name}}</div>
             </div>
 
             <div class="row">
-                <div class="col" v-if="user.level">    
+                <div class="col" v-if="user.level">
                     <svg id="Layer_1" height="80"
                         viewBox="0 0 1000 512" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -109,7 +108,7 @@
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:98px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';text-align:center;text-anchor:middle;fill:#a94ec4;fill-opacity:1;stroke-width:0.922251;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
    sodipodi:role="line">{{user.level.name}}</tspan>
 </text>
-                    </svg>     
+                    </svg>
                 </div>
                 <div class="col">
                     <div class="row">
@@ -238,7 +237,7 @@
                             y="104.00811"
                             style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';text-align:center;text-anchor:middle;fill:#4a4e57;fill-opacity:1;stroke-width:0.264583">200</tspan></text>
                         </g>
-                    </svg>                  
+                    </svg>
                 </div>
                 <div class="col">
                     <h4>My Activity</h4>
