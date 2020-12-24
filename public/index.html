@@ -96,7 +96,7 @@
                     </svg>
                 </div>
                 <div class="p-2">
-                    My LMS rating:<br>
+                    My rating:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
                     xmlns:cc="http://creativecommons.org/ns#"
@@ -161,7 +161,7 @@
                         id="tspan255-9-8-3"
                         x="83.869606"
                         y="51.628368"
-                        style="fill:#ffffff;stroke-width:0.160644">{{lms_raiting}}</tspan></text>
+                        style="fill:#ffffff;stroke-width:0.160644">{{user.user_field1}}</tspan></text>
                     </g>
                     </svg>
 
@@ -371,10 +371,16 @@
                 <div class="p-2">
                     <h4>My Activity</h4>
                     <div>
-                        My LMS rating: {{lms_raiting}} </span>
+                        My Wallet: {{user.user_field3}} 
                     </div>
                     <div>
-                        My LMS activity last 14 days: {{lms_activity.count}} and {{lms_activity.learning}}</span>
+                        My Level: №{{user.level.val}} - {{user.level.name}}
+                    </div>
+                    <div>
+                        Next level: {{user.nextLevel.name}} (progress: {{progress}}%)
+                    </div>
+                    <div>
+                        My LMS activity last 14 days: {{lms_activity.count}} and {{lms_activity.learning}}
                     </div>
                     <div >
                         My Work Summary rating: {{user.user_field1}} / <span v-if="user.level">{{user.level.maxRating}}</span>
