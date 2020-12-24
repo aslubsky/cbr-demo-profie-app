@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <base href="/"/>
 </head>
 <body>
 
@@ -27,7 +26,7 @@
             </div>
 
             <div class="d-flex flex-row mb-3">
-                <div class="p-2">
+                <div class="p-2" v-if="user.user_field2">
                     My wallet:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -95,7 +94,7 @@
                     </g>
                     </svg>
                 </div>
-                <div class="p-2">
+                <div class="p-2" v-if="user.user_field1">
                     My rating:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -166,7 +165,7 @@
                     </svg>
 
                 </div>                
-                <div class="p-2">
+                <div class="p-2" v-if="user.level">
                     My level:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -306,7 +305,7 @@
                     </svg>
                     
                 </div>
-                <div class="p-2">
+                <div class="p-2" v-if="user.nextLevel">
                     Next level {{user.nextLevel.name}}:<br>
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
@@ -370,19 +369,19 @@
                 </div>
                 <div class="p-2">
                     <h4>My Activity</h4>
-                    <div>
+                    <div v-if="user.user_field2">
                         My Wallet: {{user.user_field2}} 
                     </div>
-                    <div>
+                    <div v-if="user.level">
                         My Level: №{{user.level.val}} - {{user.level.name}}
                     </div>
-                    <div>
+                    <div v-if="user.nextLevel">
                         Next level: {{user.nextLevel.name}} (progress: {{progress}}%)
                     </div>
-                    <div>
+                    <div v-if="lms_activity">
                         My LMS activity last 14 days: {{lms_activity.count}} and {{lms_activity.learning}}
                     </div>
-                    <div >
+                    <div v-if="user.user_field1">
                         My Work Summary rating: {{user.user_field1}} / <span v-if="user.level">{{user.level.maxRating}}</span>
                         <br>
                     </div>

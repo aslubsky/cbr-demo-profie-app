@@ -5,7 +5,7 @@ module.exports = {
     devServer: {
         proxy: {
             '^/api': {
-                target: 'https://dev-main.davintoo.com',
+                target: 'https://qa.davintoo.com',
                 ws: true,
                 changeOrigin: true
             }
