@@ -15,22 +15,248 @@
             <div class="row">
                 <div class="col-sm">
                     <div>
-                        I'm: {{user.fullname}}, {{user.international_name}}
+                        <img src=""> {{urlHome}}
+                        {{user.photo_thumb}} 
                     </div>
                     <div>
-                        My rating: {{user.user_field1}} / <span v-if="user.level">{{user.level.maxRating}}</span>
+                        <h3>{{user.fullname}} <small class="text-muted"> {{user.international_name}}</small><h3>
                     </div>
-                    <div v-if="user.level">
-                        My level: {{user.level.name}}
+                    <div class="col">
+                        My wallet: {{user.user_field3}}
                     </div>
-                    <div v-if="user.nextLevel">
-                        Next level: {{user.nextLevel.name}}
-                    </div>
-                </div>
-                <div class="col-sm">
-                    My wallet: {{user.user_field3}}
                 </div>
             </div>
+
+
+            <div class="d-flex flex-row bd-highlight mb-3 justify-content-between" v-if="user.level">
+                <div class="p-2 bd-highlight"> {{user.level.name}}</div>
+                <div class="p-2 bd-highlight" style="min-width: 200px;width: 100%;">
+                    <div class="progress progress-big" style="height: 1.5rem;">
+                        <div class="progress-bar bg-warning" role="progressbar" v-bind:style="{ width: progress + '%' }" v-bind:aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">{{progress + '%'}}</div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight">{{user.nextLevel.name}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col" v-if="user.level">    
+                    <svg id="Layer_1" height="80"
+                        viewBox="0 0 1000 512" xmlns="http://www.w3.org/2000/svg">
+                        <path
+ id="rect858"
+ style="fill:#fdbf00;fill-opacity:1;stroke-width:1.95557;stroke-miterlimit:4;stroke-dasharray:none"
+ d="M 373.35087,52.478414 V 302.47793 h 403.60468 v -0.0664 a 124.99976,124.99976 0 0 0 4.03905,0.0664 A 124.99976,124.99976 0 0 0 905.99436,177.47817 124.99976,124.99976 0 0 0 780.9946,52.478414 a 124.99976,124.99976 0 0 0 -4.03905,0.06641 v -0.06641 z" />
+<path
+ id="rect872"
+ style="fill:#ffd74a;fill-opacity:1;stroke-width:1.78073;stroke-miterlimit:4;stroke-dasharray:none"
+ d="M 373.96806,72.478375 V 282.47797 h 398.41133 v -0.0547 a 104.9998,104.9998 0 0 0 3.39257,0.0547 104.9998,104.9998 0 0 0 104.9998,-104.9998 104.9998,104.9998 0 0 0 -104.9998,-104.999795 104.9998,104.9998 0 0 0 -3.39257,0.05469 v -0.05469 z" />
+<g
+ id="g912">
+<path
+   d="m151.006 315.139v181.86c0 5.325 2.823 10.25 7.417 12.942s10.271 2.746 14.917.143l82.66-46.328 11.726-76.562-11.726-79.704c-52.497.718-104.994 3.507-104.994 7.649z"
+   fill="#b5fb49"
+   id="path908" />
+<path
+   d="m256 307.49v156.265l82.659 46.329c2.28 1.278 4.807 1.915 7.334 1.915 2.622 0 5.243-.687 7.583-2.058 4.595-2.692 7.417-7.617 7.417-12.942v-184.731c0-4.143-52.497-5.496-104.993-4.778z"
+   fill="#84e36b"
+   id="path910" />
+</g>
+<g
+ id="g918">
+<path
+   d="m218.065 11.11c-6.759 4.342-14.578 6.636-22.611 6.636-.007 0-.015 0-.023 0-27.415 0-52.491 16.111-63.885 41.047-3.34 7.31-8.68 13.469-15.442 17.813-23.071 14.82-35.461 41.935-31.564 69.077 1.142 7.954-.02 16.023-3.36 23.333-11.396 24.941-7.161 54.449 10.792 75.176 5.262 6.075 8.647 13.491 9.789 21.446 3.897 27.142 23.414 49.676 49.722 57.407 7.711 2.266 14.568 6.674 19.829 12.749 17.952 20.727 46.553 29.131 72.866 21.412 3.866-1.134 7.843-1.698 11.82-1.695l21.154-175.489-21.152-180.022c-13.206.005-26.411 3.708-37.935 11.11z"
+   fill="#fdbf00"
+   id="path914" />
+<path
+   d="m430.831 169.089c-3.337-7.311-4.495-15.38-3.35-23.335 3.908-27.141-8.47-54.261-31.535-69.09-6.76-4.347-12.097-10.509-15.434-17.82-11.386-24.945-36.461-41.067-63.881-41.073-8.037-.002-15.858-2.3-22.618-6.647-11.546-7.421-24.78-11.129-38.013-11.124v355.511c3.955.004 7.909.57 11.754 1.699 6.497 1.909 13.131 2.835 19.713 2.835 20.071-.001 39.636-8.613 53.162-24.216 5.264-6.073 12.123-10.478 19.835-12.741 26.312-7.72 45.838-30.246 49.746-57.386 1.146-7.955 4.534-15.37 9.798-21.442 17.96-20.719 22.208-50.226 10.823-75.171z"
+   fill="#ff9102"
+   id="path916" />
+</g>
+<g
+ id="g924">
+<path
+   d="m150.946 180.022c0 57.927 47.127 105.054 105.054 105.054l11.726-99.873-11.726-110.234c-57.927 0-105.054 47.127-105.054 105.053z"
+   fill="#ffd74a"
+   id="path920" />
+<path
+   d="m256 74.969v210.108c57.927 0 105.054-47.127 105.054-105.054s-47.127-105.054-105.054-105.054z"
+   fill="#fdbf00"
+   id="path922" />
+</g>
+<text
+ xml:space="preserve"
+ style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:133.333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a94ec4;fill-opacity:1;stroke-width:0.999998"
+ x="253.92261"
+ y="226.80164"
+ id="text_level"><tspan
+   sodipodi:role="line"
+   id="tspan969"
+   x="253.92261"
+   y="226.80164"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:133.333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#a94ec4;fill-opacity:1;stroke-width:0.999998">
+   {{user.level.val}}</tspan>
+</text>
+<text
+ xml:space="preserve"
+ style="font-size:106.66599999999999682px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';fill:#a94ec4;fill-opacity:1;stroke-width:0.922251;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
+ x="684.03455"
+ y="206.25836"
+ id="text884"
+ transform="scale(0.9222529,1.0843013)"><tspan
+   id="tspan882"
+   x="684.03455"
+   y="206.25836"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:98px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';text-align:center;text-anchor:middle;fill:#a94ec4;fill-opacity:1;stroke-width:0.922251;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
+   sodipodi:role="line">{{user.level.name}}</tspan>
+</text>
+                    </svg>     
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-3 col-sm-2" v-if="user.level">
+                            {{user.level.name}}
+                        </div>
+                        <div  class="col col-sm" v-if="user.level">
+                            <div class="progress progress-big">
+                                <div class="progress-bar bg-warning" role="progressbar" v-bind:style="{ width: progress + '%' }" v-bind:aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">{{progress + '%'}}</div>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2" v-if="user.nextLevel">
+                            {{user.nextLevel.name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <svg id="Layer_2" height="160" viewBox="0 0 148 148" xmlns="http://www.w3.org/2000/svg">
+                        <g id="layer1"
+                        transform="translate(-31.873866,-27.144346)">
+                        <g
+                            id="g2153"
+                            transform="matrix(0.03613397,0,0,-0.03613397,-409.65434,374.34121)"
+                            style="fill:#ff7f2a">
+                            <path
+                            d="m 16300,7568.22 c 0,-1126.95 -913.5,-2040.48 -2040.4,-2040.48 -1126.8,0 -2040.4,913.53 -2040.4,2040.48 0,1126.85 913.6,2040.38 2040.4,2040.38 1126.9,0 2040.4,-913.53 2040.4,-2040.38"
+                            style="fill:#ff7f2a;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                            id="path2155" />
+                        </g>
+                        <g
+                            id="g2157"
+                            transform="matrix(0.03588455,0,0,-0.03588455,-409.65434,374.34121)">
+                            <path
+                            d="m 16300,7620.8 c 0,-1072.15 -869.2,-1941.3 -1941.3,-1941.3 -1072.2,0 -1941.3,869.15 -1941.3,1941.3 0,1072.16 869.1,1941.31 1941.3,1941.31 1072.1,0 1941.3,-869.15 1941.3,-1941.31"
+                            style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                            id="path2159" />
+                        </g>
+                        <g
+                            id="g2161"
+                            transform="matrix(0.03597945,0,0,-0.03597945,-409.65434,374.34121)"
+                            style="fill:#ffccaa">
+                            <path
+                            d="m 16300,7600.72 c 0,-1093.05 -886.1,-1979.13 -1979.1,-1979.13 -1093.1,0 -1979.2,886.08 -1979.2,1979.13 0,1093.06 886.1,1979.14 1979.2,1979.14 1093,0 1979.1,-886.08 1979.1,-1979.14"
+                            style="fill:#ffccaa;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                            id="path2163" />
+                        </g>
+                        <path
+                            d="m 64.768266,99.929484 c 0.23636,-10.56922 4.49086,-20.14713 11.29594,-27.26972 l -20.37997,-20.37644 c -12.01561,12.34017 -19.4945,29.1218 -19.73791,47.64616 h 28.82194"
+                            style="fill:#6cff2b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2165" />
+                        <path
+                            d="m 77.394186,71.329794 c 7.12258,-6.80155 16.7005,-11.05253 27.269724,-11.29242 v -28.82194 c -18.527894,0.24342 -35.309534,7.7223 -47.649694,19.73439 l 20.37997,20.37997"
+                            style="fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2167" />
+                        <path
+                            d="m 76.060686,129.07951 c -6.80156,-7.11905 -11.05606,-16.69697 -11.29242,-27.26619 h -28.82194 c 0.24341,18.52436 7.7223,35.306 19.73439,47.64616 l 20.37997,-20.37997"
+                            style="fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2169" />
+                        <path
+                            d="m 106.54421,31.215434 v 28.82194 c 10.56923,0.23989 20.14714,4.49087 27.2662,11.29242 l 20.37997,-20.37997 c -12.34017,-12.01209 -29.12181,-19.48745 -47.64617,-19.73439"
+                            style="fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2171" />
+                        <g
+                            id="g2173"
+                            transform="matrix(0.03588455,0,0,-0.03588455,-409.65434,374.34121)"
+                            style="fill:#808080">
+                            <path
+                            d="m 15179,8412.73 c 190,-198.98 309,-466.57 315.6,-761.89 h 805.4 c -6.9,517.59 -215.9,986.53 -551.6,1331.4 L 15179,8412.73"
+                            style="fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                            id="path2175" />
+                        </g>
+                        <g
+                            id="g2177"
+                            transform="matrix(0.03588455,0,0,-0.03588455,-409.65434,374.34121)"
+                            style="fill:#808080">
+                            <path
+                            d="m 15494.6,7598.24 c -6.6,-295.32 -125.5,-563.02 -315.6,-762 l 569.5,-569.41 c 335.7,344.77 544.6,813.71 551.5,1331.41 h -805.4"
+                            style="fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                            id="path2179" />
+                        </g>
+                        <path
+                            d="m 134.95341,129.27707 c 7.11552,-7.35189 11.49702,-17.36725 11.49702,-28.40567 0,-22.556606 -18.28799,-40.844606 -40.84813,-40.844606 -22.556614,0 -40.844614,18.288 -40.844614,40.844606 0,11.03842 4.37797,21.05378 11.4935,28.40567 h 58.702224"
+                            style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2181" />
+                        <path
+                            d="m 70.462096,80.046934 c -5.06589,0.29986 -12.55183,1.24883 -12.55183,1.24883 0,0 4.66372,5.79261 8.09272,9.52853 0.97014,-3.83822 2.48709,-7.46125 4.45911,-10.77736"
+                            style="fill:#ec0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2183" />
+                        <path
+                            d="m 70.462096,80.046934 c -5.06589,0.29986 -12.55183,1.24883 -12.55183,1.24883 0,0 0.0388,0.0459 0.10936,0.13053 l 9.78253,3.95111 c 0.75847,-1.84855 1.64747,-3.63008 2.65994,-5.33047"
+                            style="fill:#970c00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2185" />
+                        <path
+                            d="m 79.450876,129.27707 h 52.306364 c 7.56003,-7.07673 12.29431,-17.18381 12.29431,-28.40567 0,-21.399496 -17.21203,-38.752636 -38.44925,-38.752636 -21.233704,0 -38.449254,17.35314 -38.449254,38.752636 0,11.22186 4.73428,21.32894 12.29783,28.40567"
+                            style="fill:#ffccaa;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2187" />
+                        <path
+                            d="m 129.60177,99.407374 c 0,13.451416 -10.90436,24.355776 -24.35578,24.355776 -13.447894,0 -24.352254,-10.90436 -24.352254,-24.355776 0,-13.45141 10.90436,-24.35225 24.352254,-24.35225 13.45142,0 24.35578,10.90084 24.35578,24.35225"
+                            style="fill:#eeeeee;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0352777"
+                            id="path2201" />
+                        <path
+                            d="M 120.98411,108.42629 H 89.727874 c -2.523199,0 -4.567508,-1.95083 -4.567508,-4.35865 v -8.4139 c 0,-2.407807 2.044309,-4.358645 4.567508,-4.358645 h 31.256236 c 2.52318,0 4.5675,1.950838 4.5675,4.358645 v 8.4139 c 0,2.40782 -2.04432,4.35865 -4.5675,4.35865"
+                            style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0393114"
+                            id="path2203" />
+                        <text
+                            xml:space="preserve"
+                            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#4a4e57;fill-opacity:1;stroke-width:0.264583"
+                            x="107.96094"
+                            y="157.58012"
+                            id="text3203"><tspan
+                            id="tspan3201"
+                            x="107.96094"
+                            y="157.58012"
+                            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#4a4e57;fill-opacity:1;stroke-width:0.264583">normal</tspan></text>
+                        <text
+                            xml:space="preserve"
+                            style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';text-align:center;text-anchor:middle;fill:#4a4e57;fill-opacity:1;stroke-width:0.264583"
+                            x="105.14118"
+                            y="104.00811"
+                            id="text3207"><tspan
+                            id="tspan3205"
+                            x="105.14118"
+                            y="104.00811"
+                            style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';text-align:center;text-anchor:middle;fill:#4a4e57;fill-opacity:1;stroke-width:0.264583">200</tspan></text>
+                        </g>
+                    </svg>                  
+                </div>
+                <div class="col">
+                    <h4>My Activity</h4>
+                    <div>
+                        My LMS rating: {{lms_raiting}} </span>
+                    </div>
+                    <div>
+                        My LMS activity last 14 days: {{lms_activity.count}} and {{lms_activity.learning}}</span>
+                    </div>
+                    <div >
+                        My Work Summary rating: {{user.user_field1}} / <span v-if="user.level">{{user.level.maxRating}}</span>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
     </div>
 </div>
