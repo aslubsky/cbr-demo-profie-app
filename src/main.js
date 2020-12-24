@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
+import * as pym from 'pym.js';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './main.module.scss'
@@ -18,12 +20,12 @@ const app = new Vue({
         urlHome: null,
         levels: {
             '0': {
-                val:0,
+                val: 0,
                 name: 'Beginner',
                 maxRating: 100
             },
             '1': {
-                val:1,
+                val: 1,
                 name: 'Beginner',
                 maxRating: 1000
             },
@@ -49,6 +51,9 @@ const app = new Vue({
                 'Bearer ' + localStorage.getItem('jwtToken');
         }
 
+        const pymChild = new pym.Child({polling: 500});
+        pymChild.sendMessage('height', '200px');
+
         axios
             .get(`${apiServer}/api/v2/profile`)
             .then(function (response) {
@@ -72,30 +77,28 @@ const app = new Vue({
                 }
                 //app.user.nextLevel = null;
                 app.loading = false;
-                
+                pymChild.sendHeight();
             })
             .then(function (response) {
                 console.log(app.user.id)
                 axios
-                .get(`${apiServer}/api/rest.php/auth/users/` + app.user.id + `?action=get-user-activity-data`)
-                .then(function (response) {
-                    let res = response.data;
-                    app.lms_activity.count = res.count;
-                    for (const key in res.data) {
-                        app.lms_activity.learning +=  (res.data[key]) ? res.data[key] : 0;
-                    }
-                });
+                    .get(`${apiServer}/api/rest.php/auth/users/` + app.user.id + `?action=get-user-activity-data`)
+                    .then(function (response) {
+                        let res = response.data;
+                        app.lms_activity.count = res.count;
+                        for (const key in res.data) {
+                            app.lms_activity.learning += (res.data[key]) ? res.data[key] : 0;
+                        }
+                    });
             });
 
-
-            axios
+        axios
             .get(`${apiServer}/api/v2/users/rating/current/value`)
             .then(function (response) {
                 app.urlHome = apiServer;
                 app.lms_raiting = response.data.rating;
             });
 
-            
     },
     methods: {}
 });
