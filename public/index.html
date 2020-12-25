@@ -11,11 +11,11 @@
     <div class="loading" v-bind:class="{'hidden': !loading}"></div>
     <div class="" v-if="user">
         <div class="main-container container">
-            <div class="d-flex flex-row mb-3">
-                <div class="p-2">
+            <div class="row mb-3">
+                <div class="col-2 col-sm-1 p-2">
                     <img v-bind:src="user.photo_thumb"> 
                 </div>
-                <div class="p-2">
+                <div class="col-10 col-sm-11 p-2">
                     <h3>{{user.fullname}} <small class="text-muted"> {{user.international_name}}</small><h3>
                     <ul style="font-size: 12px;">
                         <li>Work Location: {{user.city}} </li>
@@ -25,8 +25,8 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-row mb-3">
-                <div class="p-2" v-if="user.user_field3">
+            <div class="row mb-3">
+                <div class="col-12 col-sm-6 col-md-3 p-2 text-end" v-if="user.user_field3">
                     My wallet:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -94,7 +94,7 @@
                     </g>
                     </svg>
                 </div>
-                <div class="p-2" v-if="user.user_field1">
+                <div class="col-12 col-sm-6 col-md-3 p-2 text-end" v-if="user.user_field1">
                     My rating:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -165,7 +165,7 @@
                     </svg>
 
                 </div>                
-                <div class="p-2" v-if="user.level">
+                <div class="col-12 col-sm-6 col-md-3 p-2 text-end" v-if="user.level">
                     My level:<br>
                     <svg
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -305,7 +305,7 @@
                     </svg>
                     
                 </div>
-                <div class="p-2" v-if="user.nextLevel">
+                <div class="col-12 col-sm-6 col-md-3 p-2 text-end" v-if="user.nextLevel">
                     Next level {{user.nextLevel.name}}:<br>
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
@@ -336,7 +336,7 @@
                             </text>
                         </g>
                     </svg><br>
-                    <div class="progress progress-big" style="width: 60%; margin-left: 40%;">
+                    <div class="progress progress-big" style="width: 120px;margin-left: auto;">
                         <div class="progress-bar bg-warning" role="progressbar" v-bind:style="{ width: progress + '%' }" v-bind:aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">{{progress + '%'}}</div>
                     </div>
                  
@@ -344,8 +344,8 @@
 
             </div>
 
-            <div class="d-flex flex-row align-items-start mb-3">
-                <div class="p-2">
+            <div class="row mb-3">
+                <div class="col-12 col-sm-3 p-2 text-center text-sm-end">
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
                         xmlns="http://www.w3.org/2000/svg"
@@ -367,7 +367,7 @@
                     </svg>
                  
                 </div>
-                <div class="p-2">
+                <div class="col-12 col-sm-9 p-2">
                     <h4>My Activity</h4>
                     <div v-if="user.user_field3">
                         My Wallet: {{user.user_field3}} 
