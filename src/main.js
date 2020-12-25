@@ -21,7 +21,7 @@ const app = new Vue({
         levels: {
             '0': {
                 val: 0,
-                name: 'Beginner',
+                name: 'Trainee',
                 maxRating: 100
             },
             '1': {
@@ -58,7 +58,8 @@ const app = new Vue({
             .get(`${apiServer}/api/v2/profile`)
             .then(function (response) {
                 app.user = response.data.data;
-                app.user.level = app.levels[app.user.user_field2] || {};
+                app.user.user_field3 = app.user.user_field3 || 0;
+                app.user.level = app.levels[app.user.user_field2] || app.levels[0];
                 const lvlNames = Object.keys(app.levels);
                 let fl = false;
                 app.user.nextLevel = null;
@@ -67,9 +68,10 @@ const app = new Vue({
                         app.user.nextLevel = app.levels[lvlName];
                         fl = false;
                     }
-                    if (lvlName == app.user.user_field2) {
+                    if (lvlName == (app.user.user_field2 || 0) ) {
                         fl = true;
-                        app.progress = app.user.user_field1 * 100 / app.levels[lvlName].maxRating;
+                        let curent = app.user.user_field1 || 0;
+                        app.progress = curent * 100 / app.levels[lvlName].maxRating;
                     }
                     if (app.user.photo_thumb) {
                         app.user.photo_thumb = apiServer + app.user.photo_thumb;
