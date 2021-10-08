@@ -376,6 +376,9 @@
                     <div v-if="user.nextLevel">
                         Next level: {{user.nextLevel.name}} (progress: {{progress}}%)
                     </div>
+                    <div v-if="lms_raiting">
+                        My LMS rating: {{lms_raiting}}
+                    </div>
                     <div v-if="lms_activity">
                         My LMS activity last 14 days: {{lms_activity.count}} and {{lms_activity.learning}}
                     </div>

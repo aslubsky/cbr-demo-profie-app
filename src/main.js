@@ -84,7 +84,9 @@ const app = new Vue({
             .then(function (response) {
                 console.log(app.user.id)
                 axios
-                    .get(`${apiServer}/api/rest.php/auth/users/` + app.user.id + `?action=get-user-activity-data`)
+                // /api/rest.php/auth/users/{userId}?action=get-user-activity-data
+                // /api/v2/users/activity/summary/{userId}
+                    .get(`${apiServer}/api/v2/users/activity/summary/` + app.user.id )
                     .then(function (response) {
                         let res = response.data;
                         app.lms_activity.count = res.count;
