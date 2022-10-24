@@ -46,9 +46,9 @@ const app = new Vue({
         this.loading = true;
         // console.log('user', (window.parent || {}).baAuthUser);
 
-        if (localStorage.getItem('jwtToken')) {
+        if (localStorage.getItem('id_token')) {
             axios.defaults.headers.common['Authorization'] =
-                'Bearer ' + localStorage.getItem('jwtToken');
+                'Bearer ' + localStorage.getItem('id_token');
         }
 
         const pymChild = new pym.Child({polling: 500});
